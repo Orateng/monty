@@ -66,7 +66,7 @@ void nop(stack_t **head, unsigned int counter);
 void sub(stack_t **head, unsigned int counter);
 void div_num(stack_t **head, unsigned int counter);
 void mul(stack_t **head, unsigned int counter);
-void f_mod(stack_t **head, unsigned int counter);
+void mod(stack_t **head, unsigned int counter);
 void f_pchar(stack_t **head, unsigned int counter);
 void f_pstr(stack_t **head, unsigned int counter);
 void f_rotl(stack_t **head, unsigned int counter);
