@@ -15,7 +15,8 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 				{"swap", swap}, {"add", add},
 				{"nop", nop}, {"sub", sub},
 				{"div", div_num}, {"mul", mul},
-			       	{"mod", mod}, {NULL, NULL}
+			       	{"mod", mod}, {"pchar", pchar},
+			       	{NULL, NULL}
 				};
 	unsigned int i = 0;
 	char *op;
