@@ -12,47 +12,6 @@ void nop(stack_t **head, unsigned int counter)
 }
 
 /**
- * mod - computes the rest of the division of the second
- * top element of the stack by the top element of the stack
- * @head: stack head
- * @counter: line_number
- * Return: no return
-*/
-void mod(stack_t **head, unsigned int counter)
-{
-        stack_t *h;
-        int len = 0, aux;
-
-        h = *head;
-        while (h)
-        {
-                h = h->next;
-                len++;
-        }
-        if (len < 2)
-        {
-                fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
-                fclose(bus.file);
-                free(bus.content);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
-        }
-        h = *head;
-        if (h->n == 0)
-        {
-                fprintf(stderr, "L%d: division by zero\n", counter);
-                fclose(bus.file);
-                free(bus.content);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
-        }
-        aux = h->next->n % h->n;
-        h->next->n = aux;
-        *head = h->next;
-        free(h);
-}
-
-/**
  * pchar - prints the char at the top of the stack,
  * followed by a new line
  * @head: stack head
@@ -132,4 +91,30 @@ void rotl(stack_t **head,  __attribute__((unused)) unsigned int counter)
         (*head)->next = NULL;
         (*head)->prev = tmp;
         (*head) = aux;
+}
+
+/**
+  *rotr- rotates the stack to the bottom
+  *@head: stack head
+  *@counter: line_number
+  *Return: no return
+ */
+void rotr(stack_t **head, __attribute__((unused)) unsigned int counter)
+{
+	stack_t *copy;
+
+	copy = *head;
+	if (*head == NULL || (*head)->next == NULL)
+	{
+		return;
+	}
+	while (copy->next)
+	{
+		copy = copy->next;
+	}
+	copy->next = *head;
+	copy->prev->next = NULL;
+	copy->prev = NULL;
+	(*head)->prev = copy;
+	(*head) = copy;
 }
