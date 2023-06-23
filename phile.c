@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * f_push - add node to the stack
+ * push - add node to the stack
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
-void f_push(stack_t **head, unsigned int counter)
+void push(stack_t **head, unsigned int counter)
 {
 	int n, j = 0, flag = 0;
 
@@ -37,12 +37,12 @@ void f_push(stack_t **head, unsigned int counter)
 }
 
 /**
- * f_pall - prints the stack
+ * pall - prints the stack
  * @head: stack head
  * @counter: no used
  * Return: no return
 */
-void f_pall(stack_t **head, unsigned int counter)
+void pall(stack_t **head, unsigned int counter)
 {
         stack_t *h;
         (void)counter;
@@ -58,12 +58,12 @@ void f_pall(stack_t **head, unsigned int counter)
 }
 
 /**
- * f_pint - prints the top
+ * pint - prints the top
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
-void f_pint(stack_t **head, unsigned int counter)
+void pint(stack_t **head, unsigned int counter)
 {
         if (*head == NULL)
         {
